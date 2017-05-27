@@ -10,7 +10,7 @@ jobs:
       - run: chmod +x kubectl
       - run: sudo apt-get -y install gnupg
       - run: echo $GPG_KEY | gpg -d --passphrase-fd 0  --batch --yes kubeconfig.gpg > kubeconfig
-      - run: "export ARTIFACT=$(curl -f -u $CIRCLE_TOKEN: https://circleci.com/api/v1.1/project/github/phoebus-games/$COMPONENT/$CIRCLE_BUILD_NUM/artifacts|jq '.[] | .url)"
+      - run: "export ARTIFACT=$(curl -f -u $CIRCLE_TOKEN: https://circleci.com/api/v1.1/project/github/phoebus-games/$COMPONENT/$CIRCLE_BUILD_NUM/artifacts|jq '.[] | .url')"
       - run: "wget $ARTIFACT"
       - run: tar zxvf assets.tar.gz assets
       - run:
